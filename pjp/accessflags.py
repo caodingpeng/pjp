@@ -1,4 +1,5 @@
 from collections import namedtuple
+from functools import reduce
 
 
 __all__ = ['ClassAccessFlags', 'InnerClassAccessFlags', 'FieldAccessFlags', 'MethodAccessFlags']
