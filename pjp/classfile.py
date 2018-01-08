@@ -36,15 +36,15 @@ class ClassFile(Class):
         self.interfaces = InterfaceTable(self)
         self.fields = FieldTable(self)
         self.methods = MethodTable(self)
-        self.attributes = AttributeTable(self)
+        # self.attributes = AttributeTable(self)
         name = self.constant_pool.ref(self._this_class_index, [ConstantType.CLASS])
         self.this_class = Class(name, access_flags)
         if self._super_class_index:
             self.super_class = Class(self.constant_pool.ref(self._super_class_index, [ConstantType.CLASS]))
         else:
             self.super_class = Class('java/lang/Object')
-        if self._buffer_pos != len(self._source):
-            raise ParseError('Trailing data')
+        # if self._buffer_pos != len(self._source):
+        #     raise ParseError('Trailing data')
         Class.__init__(self, name, access_flags)
 
     def read_data(self, data_format):
